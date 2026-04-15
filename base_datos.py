@@ -3,21 +3,21 @@ from datetime import datetime
 class Base_datos:
 
     def __init__(self):
-        self.lista_carros = []  # array de carros registrados
+        self.lista_carros = []  
 
-    # CREATE - registrar entrada
+  
     def registrar_entrada(self, carro):
         self.lista_carros.append(carro)
         print(f" Carro {carro.get_placa()} registrado en posición {len(self.lista_carros) - 1}")
 
-    # UPDATE - asignar chofer
+   
     def asignar_chofer(self, indice, chofer):
         carro = self.buscar_carro(indice)
         if carro:
             carro.set_chofer(chofer)
             print(f" Chofer '{chofer.get_nombre()}' asignado al carro en posición {indice}")
 
-    # UPDATE - registrar salida
+  
     def registrar_salida(self, indice):
         carro = self.buscar_carro(indice)
         if carro:
@@ -25,7 +25,6 @@ class Base_datos:
             carro.set_fecha_salida(fecha)
             print(f" Salida registrada para carro en posición {indice}: {fecha}")
 
-    # READ - ver todos
     def ver_todos(self):
         if not self.lista_carros:
             print("  No hay carros registrados.")
@@ -36,7 +35,7 @@ class Base_datos:
             self.lista_carros[i].ver_info()
         print("===================================\n")
 
-    # READ - buscar por posición
+  
     def buscar_carro(self, indice):
         if 0 <= indice < len(self.lista_carros):
             print(f"\n Carro en posición {indice}:")
@@ -46,7 +45,6 @@ class Base_datos:
             print(f" No existe carro en posición {indice}")
             return None
 
-    # READ - buscar por placa
     def buscar_por_placa(self, placa):
         print(f"\n Buscando placa: {placa}")
         encontrado = False
@@ -57,7 +55,7 @@ class Base_datos:
         if not encontrado:
             print(f" No se encontró ningún carro con placa {placa}")
 
-    # DELETE - eliminar registro
+   
     def eliminar_registro(self, indice):
         if 0 <= indice < len(self.lista_carros):
             self.lista_carros.pop(indice)
