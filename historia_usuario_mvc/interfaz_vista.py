@@ -18,3 +18,7 @@ class Ventana:
     def visualizar_datos(self):
         pass
     
+    def hacer_mensaje(self, dato):
+        if dato : 
+            print("Usuario creado en el sistema")
+        else: print("ERROR. . . usuario no creado...")
