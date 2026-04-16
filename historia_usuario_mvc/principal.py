@@ -1,12 +1,21 @@
-from base_datos import Base_datos
-from controlador import Controlador
+﻿from controlador import Controlador
 from interfaz_vista import Ventana
 
-obj_vista = Ventana()
-obj_controlador = Controlador(obj_vista)
 
-obj_controlador.recibir_datos_carro()
-obj_controlador.confirmar_guardado()
+def main():
+    obj_vista = Ventana()
+    obj_controlador = Controlador(obj_vista)
 
-obj_db = Base_datos()
-obj_db.ver_info()
+    while True:
+        obj_controlador.recibir_datos_carro()
+        obj_controlador.confirmar_guardado()
+
+        opcion = input("¿Deseas registrar otro? (s/n): ").strip().lower()
+        if opcion != "s":
+            break
+
+    obj_controlador.mostrar_registros()
+
+
+if __name__ == "__main__":
+    main()
